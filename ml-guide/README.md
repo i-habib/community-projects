@@ -1,40 +1,19 @@
 # Virtual Embryo for ML people
 
-A conceptual guide to the Virtual Embryo Challenge for people who know machine learning but not single-cell biology.
+If you know ordinary ML but not single-cell biology, the challenge has a slightly awkward first hour. You can understand the file format and still not know what a sensible prediction is supposed to represent.
+
+This guide is for that gap.
 
 [![Open the data tour in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/i-habib/community-projects/blob/main/ml-guide/notebooks/virtual_embryo_data_tour.ipynb)
 
-The official documentation is already good at telling you the rules, file format, and scoring system. Existing community tooling is also good at getting you from registration to a valid submission. This guide is for the step in between:
+The central idea is that a developmental stage is a **population of cells**, not one supervised target vector and not a set of cells paired one-to-one with an earlier stage. From there, the guide works through what Task 1 is really predicting, what 3-D position adds in Task 2, and why Task 3 is easier to reason about as a perturbation response away from matched WT.
 
-> **What is the dataset actually representing, what kind of object am I trying to predict, and what would a sensible model even look like?**
+It also gets into modeling choices, but only after the failure mode is clear. The point is to end up with a sentence like “I need changing cell-state proportions without collapsing within-state diversity,” not just “maybe diffusion.”
 
-Start with **[the guide](guide.md)**. Then open **[the data tour notebook](notebooks/virtual_embryo_data_tour.ipynb)** and inspect the organizers' small public examples yourself.
+Start with the **[full guide](guide.md)**. The **[data tour](notebooks/virtual_embryo_data_tour.ipynb)** opens the organizers' small public examples directly. There is also a **[one-page cheat sheet](CHEATSHEET.md)** if you only need the basic mental model.
 
-## What this covers
+For scorer behavior, the separate [Intuition Lab](https://github.com/i-habib/virtual-embryo-community/tree/main/intuition-lab) deliberately breaks known public targets and shows which metrics react.
 
-- what a row, column, and value in the expression matrix mean
-- why there is no “same cell later” target
-- why the tasks are population-generation problems rather than ordinary regression
-- what changes between Tasks 1, 2, and 3
-- how to read the scoring questions without memorizing every metric acronym
-- a modeling ladder from copy-last to state-aware dynamics, optimal transport, and conditional generative models
-- common failure modes that are easy to miss if you come from standard ML benchmarks
-
-## What this does not cover
-
-For exact contracts, quotas, rules, and upload steps, use the official challenge site and starter kit. Those are the source of truth.
-
-The modeling ideas here are starting points, not claims about what will win the challenge.
-
-## Quick links
-
-- [Full conceptual guide](guide.md)
-- [One-page cheat sheet](CHEATSHEET.md)
-- [Runnable data tour](notebooks/virtual_embryo_data_tour.ipynb)
-- [Intuition Lab: controlled failures for Tasks 1–3](https://github.com/i-habib/virtual-embryo-community/tree/main/intuition-lab)
-- [Official challenge](https://virtualembryo.ai/challenge)
-- [Official tasks](https://virtualembryo.ai/challenge/tasks)
-- [Official evaluation](https://virtualembryo.ai/challenge/evaluation)
-- [Official local scorer (`veckit`)](https://github.com/aristoteleo/veckit)
+For exact rules, file contracts, quotas, and uploads, use the official challenge documentation. Those are intentionally not duplicated here.
 
 Independent community resource. MIT licensed.
